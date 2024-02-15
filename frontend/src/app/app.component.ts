@@ -1,27 +1,25 @@
-import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { GameService } from './game.service';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { QuestionComponent } from '../components/question/question.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    QuestionComponent,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+  ],
 })
 export class AppComponent {
-  private gameService = inject(GameService);
-
   title = 'frontend';
-  remainingTime = this.gameService.remainingTime;
-  timeout = this.gameService.timeout;
-  isCounting = this.gameService.isTimerCounting;
-
-  start() {
-    this.gameService.startTimer();
-  }
-
-  restart() {
-    this.gameService.restartTimer();
-  }
 }

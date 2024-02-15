@@ -1,0 +1,11 @@
+@if (!timeout()){
+  Time: {{remainingTime()}}
+  @if (!isCounting()){
+    <button (click)="start()">Start Timer</button>
+  }
+} @else {
+  <h1>THE GAME IS OVER</h1>
+  <button (click)="restart()">Play again</button>
+}
+
+<app-question [question]="dummyQuestion" (onRightAnswer)="rightAnswer()" (onWrongAnswer)="wrongAnswer()"></app-question>
