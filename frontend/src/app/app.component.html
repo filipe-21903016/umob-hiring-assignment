@@ -1,10 +1,18 @@
+<!-- <mat-drawer-container class="sidenav">
+    <mat-drawer mode="side" opened></mat-drawer>
+    <mat-drawer-content>
+    </mat-drawer-content>
+</mat-drawer-container> -->
+<!-- <nav class="navbar">
+    <mat-list class="nav">
+        <mat-list-item><a rout>Play</a></mat-list-item>
+        <mat-list-item><a>History</a></mat-list-item>
+    </mat-list>
+</nav> -->
+<nav>
+    <ul>
+      <li><a routerLink="/play" routerLinkActive="active" ariaCurrentWhenActive="page">Play Game</a></li>
+      <li><a routerLink="/history" routerLinkActive="active" ariaCurrentWhenActive="page">History</a></li>
+    </ul>
+</nav>
 <router-outlet />
-@if (!timeout()){
-  Time: {{remainingTime()}}
-  @if (!isCounting()){
-    <button (click)="start()">Start Timer</button>
-  }
-} @else {
-  <h1>THE GAME IS OVER</h1>
-  <button (click)="restart()">Play again</button>
-}
