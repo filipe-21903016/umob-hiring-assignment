@@ -1,0 +1,14 @@
+@if (!action()){
+    <button (click)="setAction('login')">Login</button>
+    <button (click)="setAction('signup')">Signup</button>
+} @else {
+    <form>
+        <label for="email">Email: </label>
+        <input id="email" type="text" [formControl]="email">
+
+        <label for="password">Password: </label>
+        <input id="password" type="password" [formControl]="password">
+
+        <button (click)="submit()">{{this.action() | uppercase}}</button>
+    </form>
+}
