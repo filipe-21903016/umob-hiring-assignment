@@ -1,3 +1,42 @@
 :host {
   display: block;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; 
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  margin: 10px;
+}
+
+.center-horizontal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+form {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+form > mat-form-field{
+  margin: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+}

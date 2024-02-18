@@ -1,12 +1,16 @@
 @if (question()) {
-<label>{{question()?.description}}</label>
-<mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="selectedAnswer">
-  @for (option of question()?.options; track option) {
-    <mat-radio-button [value]="option">{{option}}</mat-radio-button>
-  }
-</mat-radio-group>
-<button (click)="submit()" [disabled]="!selectedAnswer">Next</button>
+  <div class="content-container">
+    <label>{{question()?.description}}</label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="radio-group"
+      [(ngModel)]="selectedAnswer">
+      @for (option of question()?.options; track option) {
+        <mat-radio-button [value]="option">{{option}}</mat-radio-button>
+      }
+    </mat-radio-group>
+  </div>
+  <div class="action-buttons">
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="!selectedAnswer">Next</button>
+  </div>
 }

@@ -1,14 +1,25 @@
-@if (!action()){
-    <button (click)="setAction('login')">Login</button>
-    <button (click)="setAction('signup')">Signup</button>
-} @else {
-    <form>
-        <label for="email">Email: </label>
-        <input id="email" type="text" [formControl]="email">
+    <div class="container">
+    @if (!action()){
+        <div class="button-container">
+            <button mat-raised-button color="primary" (click)="setAction('login')">Login</button>
+            <button mat-raised-button color="primary" (click)="setAction('signup')">Signup</button>
+        </div>
+    } @else {
+        <form class="center-horizontal" [formGroup]="form" (ngSubmit)="action() === 'login' ? login(): signup()" novalidate >
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput id="username" type="text" formControlName="username">
+            </mat-form-field>
 
-        <label for="password">Password: </label>
-        <input id="password" type="password" [formControl]="password">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput id="password" type="password" formControlName="password">
+            </mat-form-field>
 
-        <button (click)="submit()">{{this.action() | uppercase}}</button>
-    </form>
-}
+            <div class="action-buttons">
+                <button mat-raised-button color="primary" type="submit">{{action() | uppercase}}</button> 
+                <button mat-raised-button color="accent" type="button" (click)="cancel()">CANCEL</button> 
+            </div>
+        </form>
+    }
+</div>

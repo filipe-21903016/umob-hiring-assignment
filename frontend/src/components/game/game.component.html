@@ -1,11 +1,43 @@
 @if (!timeout()){
-  Time: {{remainingTime()}}
-  @if (!isCounting()){
-    <button (click)="start()">Start Timer</button>
+  <div class="game-container center-horizontal">
+    <div class="widgets-container">
+      <div class="widget">
+        <mat-icon aria-hidden="false" fontIcon="schedule"></mat-icon> 
+        <span>{{remainingTime()}}s</span>
+      </div>
+      <div class="widget">
+        <mat-icon aria-hidden="false" fontIcon="military_tech"></mat-icon> 
+        <span>{{score()}} points</span>
+      </div>
+    </div>
+  </div>
+  @if (isCounting() && !isLoading()){
+    @for (question of questions(); track question; let i = $index) {    
+      @if (i === questionsIterator()){
+        <div class="question-container center-horizontal">
+          <app-question 
+            [question]="question" 
+            (onRightAnswer)="rightAnswer()" 
+            (onWrongAnswer)="wrongAnswer()"
+          ></app-question>
+        </div>
+      }
+    }
+  } @else{
+    <div class="action-buttons center-horizontal">
+      <button mat-raised-button color="primary" (click)="start()">Start Game</button>
+    </div>
   }
 } @else {
-  <h1>THE GAME IS OVER</h1>
-  <button (click)="restart()">Play again</button>
+  <div class="gameover-container center-horizontal">
+    @if (score() && score() > 0){
+      <h1>Congratulations, you scored {{this.score()}}!</h1>
+    } @else {
+      <h1>Oops, better luck next time! Your score: {{ this.score() }}</h1>
+    }
+    <div class="action-buttons center-horizontal">
+      <button mat-raised-button color='primary' class="action-button" (click)="restart()">Play again</button>
+      <button mat-raised-button color='accent' class='action-button' (click)="back()">Back</button>
+    </div>
+  </div>
 }
-
-<app-question [question]="dummyQuestion" (onRightAnswer)="rightAnswer()" (onWrongAnswer)="wrongAnswer()"></app-question>

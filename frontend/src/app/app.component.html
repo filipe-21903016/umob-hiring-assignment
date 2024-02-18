@@ -9,10 +9,42 @@
         <mat-list-item><a>History</a></mat-list-item>
     </mat-list>
 </nav> -->
-<nav>
-    <ul>
-      <li><a routerLink="/play" routerLinkActive="active" ariaCurrentWhenActive="page">Play Game</a></li>
-      <li><a routerLink="/history" routerLinkActive="active" ariaCurrentWhenActive="page">History</a></li>
-    </ul>
-</nav>
+@if (authenticatedUser())
+{
+    <!-- <nav>
+        <ul>
+        <li><a routerLink="/play" routerLinkActive="active" ariaCurrentWhenActive="page">Play Game</a></li>
+        <li><a routerLink="/history" routerLinkActive="active" ariaCurrentWhenActive="page">History</a></li>
+        <li><a (click)="signout()">Signout</a></li>
+        <li><span class="authenticatedUser">Hello, {{authenticatedUser()}}</span></li>
+        </ul>
+    </nav> -->
+    <nav>
+        <div class="nav-actions-container">
+          <a
+            mat-raised-button
+            routerLink="/play"
+            color="primary"
+            class="nav-link"
+            >PLAY</a
+          >
+          <a
+            mat-raised-button
+            routerLink="/history"
+            color="primary"
+            class="nav-link"
+            >HISTORY</a
+          >
+        </div>
+        <div class="user-container">
+        <h2 class="authenticatedUser">Hello, {{authenticatedUser()}}</h2>
+        <a
+        (click)="signout()"
+        mat-raised-button
+        color="accent"
+        >SIGNOUT</a>
+        </div>
+    </nav>
+}
+
 <router-outlet />

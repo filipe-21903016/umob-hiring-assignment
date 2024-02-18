@@ -1,28 +1,27 @@
-nav {
-    background-color: #333; /* Background color of the navbar */
-    padding: 10px; /* Add some padding for better spacing */
-  }
-  
-  nav ul {
-    list-style-type: none; /* Remove default list styles */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-  }
-  
-  nav li {
-    display: inline-block; /* Display items horizontally */
-    margin-right: 20px; /* Add some space between items */
-  }
-  
-  nav li a {
-    color: #fff; /* Text color of the links */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  nav li a:hover {
-    color: #ffd700; /* Change text color on hover */
-  }
-  
-  nav li a.active {
-    font-weight: bold; /* Make active link bold */
-  }
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav div a {
+  margin: 10px;
+}
+
+.nav-actions-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.authenticatedUser {
+  margin: 10px;
+}
+
+.user-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+

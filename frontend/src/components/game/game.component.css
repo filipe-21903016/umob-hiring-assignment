@@ -1,3 +1,39 @@
 :host {
   display: block;
+  margin: 50px;
+}
+
+.center-horizontal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.widgets-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.widget{
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+
+.widget  span {
+  font-size: medium;
+}
+
+.action-buttons{
+  margin: 20px;
+}
+
+.gameover-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.action-button{
+  margin: 10px;
 }
