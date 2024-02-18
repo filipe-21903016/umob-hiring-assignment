@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1708045334810,
+      "tag": "0000_ambitious_preak",
+      "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1708214041951,
+      "tag": "0001_amused_zarek",
+      "breakpoints": false
+    }
+  ]
+}

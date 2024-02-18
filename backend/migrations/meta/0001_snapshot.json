@@ -1,0 +1,80 @@
+{
+  "id": "41fcd82f-0ce7-42bb-a161-6a7471ab011f",
+  "prevId": "3e3fe45a-2faa-4f30-a033-02460013c258",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "Game": {
+      "name": "Game",
+      "schema": "",
+      "columns": {
+        "Score": {
+          "name": "Score",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Username": {
+          "name": "Username",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "CreatedAt": {
+          "name": "CreatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Game_Username_User_Username_fk": {
+          "name": "Game_Username_User_Username_fk",
+          "tableFrom": "Game",
+          "tableTo": "User",
+          "columnsFrom": [
+            "Username"
+          ],
+          "columnsTo": [
+            "Username"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "User": {
+      "name": "User",
+      "schema": "",
+      "columns": {
+        "Username": {
+          "name": "Username",
+          "type": "varchar(256)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "Password": {
+          "name": "Password",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
