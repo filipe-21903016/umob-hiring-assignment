@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   inject,
   signal,
 } from '@angular/core';
@@ -12,8 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { QuestionsService } from './questions.service';
 import { AuthenticationService } from '../authentication/authentication.service';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { HistoryComponent } from '../history/history.component';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-game',
@@ -41,6 +43,14 @@ export class GameComponent {
   questionsIterator = signal(0);
   questions = toSignal(this.questionsService.questions$);
   isLoading = computed(() => !this.questions());
+
+  constructor() {
+    effect(() => {
+      if (this.timeout()) {
+        this.saveGame();
+      }
+    });
+  }
 
   rightAnswer() {
     const score = this.score();
@@ -75,7 +85,6 @@ export class GameComponent {
   }
 
   restart() {
-    this.saveGame();
     this.reset();
     this.gameService.restartTimer();
   }
@@ -88,7 +97,6 @@ export class GameComponent {
   }
 
   back() {
-    this.saveGame();
     this.reset();
   }
 }
