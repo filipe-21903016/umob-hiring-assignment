@@ -31,13 +31,14 @@
 } @else {
   <div class="gameover-container center-horizontal">
     @if (score() && score() > 0){
-      <h1>Congratulations, you scored {{this.score()}}!</h1>
+      <h1>Congratulations, you scored {{this.score()}} points!</h1>
     } @else {
-      <h1>Oops, better luck next time! Your score: {{ this.score() }}</h1>
+      <h1>Oops, better luck next time! Your score: {{ this.score() }} points</h1>
     }
     <div class="action-buttons center-horizontal">
       <button mat-raised-button color='primary' class="action-button" (click)="restart()">Play again</button>
       <button mat-raised-button color='accent' class='action-button' (click)="back()">Back</button>
     </div>
+    <app-history></app-history>
   </div>
 }

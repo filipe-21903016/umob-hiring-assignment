@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { QuestionsService } from './questions.service';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { HistoryComponent } from '../history/history.component';
 
 @Component({
   selector: 'app-game',
@@ -20,7 +21,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, QuestionComponent, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    QuestionComponent,
+    HistoryComponent,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
 export class GameComponent {
   private gameService = inject(GameService);
