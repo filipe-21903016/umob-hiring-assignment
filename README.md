@@ -17,11 +17,27 @@ This is a fullstack application for the "umob Hiring Assignment", consisting of 
     CONNECTION_STRING=postgres://username:password@localhost:5432/database_name
     ```
 
+### Using different database connection string than the provided one
+
+1. Navigate to the `backend` directory within the project
+
+2. Delete `migrations` directory
+
+3. Create migrations by running
+    ```
+    npm run add-migrations
+    ```
+
+4. Apply migrations to the database by running
+    ```
+    npm run update-database
+    ```
+
 ## Running the Backend Server
 
 To run the backend server, follow these steps:
 
-1. Navigate to the root directory of the project.
+1. Navigate to the `backend` directory within the project.
 
 2. Install dependencies by running:
     ```
