@@ -70,5 +70,4 @@ To run the frontend, follow these steps:
 
 ## Additional Notes
 
-- Ensure that you have Node.js and npm installed on your machine before running the application.
-- Make sure the required ports are not occupied by other processes.
+- Ensure that you have Node.js, Angular and npm installed on your machine before running the application.
